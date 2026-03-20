@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('trajets', function (Blueprint $table) {
             $table->id();
-            $table->date("date_time_depart");
-            $table->date("date_time_arrive");
+            $table->dateTime("date_time_depart");
+            $table->dateTime("date_time_arrive");
             $table->foreignId("id_voiture")->constrained("voitures");
             $table->foreignId("id_campus_arrive")->constrained("campuses");
             $table->foreignId("id_campus_depart")->constrained("campuses");
