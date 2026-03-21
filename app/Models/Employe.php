@@ -11,15 +11,40 @@ class Employe extends Model
     protected $fillable=["nom","prenom","email"];
 
     public function voitures(){
-        return $this->hasMany(voitures::class,"id_employe");
+        return $this->hasMany(Voitures::class,"id_employe");
     }
 
     public function campuses(){
-        return $this->hasMany(campuses::class,"id_employe");
+        return $this->belongsToMany(Campuses::class,"frequentes","id_employe","id_campuse");
     }
 
     public function trajets(){
-        return $this->belongsToMany(trajets::class,"est_passagers","id_employe","id_trajet")
+        return $this->belongsToMany(Trajets::class,"est_passagers","id_employe","id_trajet")
             ->withPivot('date_inscription');
+    }
+
+    //compte le nombre de voiture que détient un employe
+    public function nbVoiture(){
+        return $this->voitures()->count();
+    }
+    
+    //Vérifier si l’employé possède des véhicules appartenant à un modèle particulier (ex. : « Ferrari »)
+    public function verifMarque($marqueVoiture){
+        return $this->voitures()->where('modele','LIKE','%'.$marqueVoiture.'%')->exists();
+    }
+
+    // Retourner un statut à l’employé selon le nombre de véhicules qu’il possède
+    public function returnStatut(){
+        $variable = $this->nbVoiture();
+        $status = "Pas conducteur";
+        
+        if ($variable == 1) {
+            $status = "Conducteur";
+        }
+        elseif($variable>1){
+            $status = "Conducteur très actif";
+        }
+
+        return $status;
     }
 }
