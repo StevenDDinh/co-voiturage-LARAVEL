@@ -15,11 +15,13 @@ class EmployeSeeder extends Seeder
     public function run(): void
     {
         Employe::factory()->count(10)->create()->each(function($employe){
-            $nombreDeVoitures = rand(2,7);
+            $nombreDeVoitures = rand(0,3);
 
             if($nombreDeVoitures>0){
                 Voiture::factory()->count($nombreDeVoitures)
-                    ->create();
+                    ->create([
+                        'id_employe'=>$employe->id
+                    ]);
             }
         });
     }
