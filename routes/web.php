@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 // Route::get('/employes',[EmployeController::class,'index'])->name('employes.index');
-// Route::get('/employes/{id}', [EmployeController::class,'show'])->name('employes.show');
+Route::get('/employes/{id}', [EmployeController::class,'show'])->name('employes.show');
 // Route::post('/employes',[EmployeController::class,'store'])->name('employes.store');
 // Route::put('/employes/{id}',[EmployeController::class,'update'])->name('employes.update');
 // Route::delete('/employes/{id}',[EmployeController::class,'destroy'])->name('employes.destroy');

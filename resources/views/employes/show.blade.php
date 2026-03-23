@@ -1,0 +1,1 @@
+<h2>Information principales de {{ $employe->nom }}</h2>

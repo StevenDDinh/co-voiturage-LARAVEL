@@ -39,7 +39,7 @@ class EmployeController extends Controller
     {
         // Affiche un employe selon son id
         $employe = Employe::findOrFail($id);
-        return view('employe.show',compact('$employe'));
+        return view('employes/show',compact('employe'));
     }
 
     /**
