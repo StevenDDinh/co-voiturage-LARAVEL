@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeController;
+use App\Http\Controllers\VoitureController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,6 +17,8 @@ Route::get('/employes/{id}', [EmployeController::class,'show'])->name('employes.
 //ou 
 Route::resource('employes',EmployeController::class);
 
+Route::get('voitures/{id}',[VoitureController::class,'show'])->name('voitures.show');
 
 Route::resource('voitures',VoitureController::class);
-Route::get('/voitures/{id}',[VoitureController::class,'showProprietaire'])->name('voitures.showProprietaire');
+
+// Route::get('/voitures/{id}',[VoitureController::class,'showProprietaire'])->name('voitures.showProprietaire');

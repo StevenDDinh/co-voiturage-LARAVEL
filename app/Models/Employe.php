@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use App\Models\Voitures;
 
 class Employe extends Model
 {
@@ -11,15 +12,15 @@ class Employe extends Model
     protected $fillable=["nom","prenom","email"];
 
     public function voitures(){
-        return $this->hasMany(Voitures::class,"id_employe");
+        return $this->hasMany(Voiture::class,"id_employe");
     }
 
     public function campuses(){
-        return $this->belongsToMany(Campuses::class,"frequentes","id_employe","id_campuse");
+        return $this->belongsToMany(Campuse::class,"frequentes","id_employe","id_campuse");
     }
 
     public function trajets(){
-        return $this->belongsToMany(Trajets::class,"est_passagers","id_employe","id_trajet")
+        return $this->belongsToMany(Trajet::class,"est_passagers","id_employe","id_trajet")
             ->withPivot('date_inscription');
     }
 

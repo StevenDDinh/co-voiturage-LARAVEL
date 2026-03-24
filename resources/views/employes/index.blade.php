@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Co-voiturage</title>
-</head>
-<body>
+@extends('layouts.dashboard')
 
-    @include('partials.header')
-
-    <h1>Liste des employés</h1>
+    @section('titre-section')
+        <h1>Liste des employés</h1>
+    @endsection
     
+    @section('partie-haute')
     <table class='employes_table'>
         <thead>
             <th>Nom</th>
@@ -31,8 +24,4 @@
             @endforeach
         </tbody>
     </table>
-
-    @include('partials.footer')
-
-</body>
-</html>
+    @endsection

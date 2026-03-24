@@ -11,9 +11,9 @@ class Voiture extends Model
     protected $fillable=['modele','nb_places','id_employe'];
 
     public function employe(){
-        return $this->belonsTo(employes::class,'id_employe');
+        return $this->belongsTo(employe::class,'id_employe');
     }
     public function trajets(){
-        return $this->hasMany(trajets::class,"id_voiture");
+        return $this->hasMany(trajet::class,"id_voiture");
     }
 }

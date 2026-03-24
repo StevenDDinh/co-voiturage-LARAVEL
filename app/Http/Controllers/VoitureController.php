@@ -35,7 +35,10 @@ class VoitureController extends Controller
      */
     public function show(string $id)
     {
-        return Voiture::findOrFail($id);
+        
+        $voiture = Voiture::findOrFail($id);
+        // $employe = $voiture->employe);
+        return view('voitures/show',compact('voiture'));
     }
 
     

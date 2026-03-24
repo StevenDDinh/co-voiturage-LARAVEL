@@ -9,14 +9,14 @@ class Campuse extends Model
     protected $fillable=["description","adresse","type"];
    
     public function employes(){
-        return $this->belongsToMany(Employes::class,"frequente","id_campuse","id_employe");
+        return $this->belongsToMany(Employe::class,"frequente","id_campuse","id_employe");
     }
 
     public function trajetArrivee(){
-        return $this->hasMany(Trajets::class,"id_campuse_arrivee");
+        return $this->hasMany(Trajet::class,"id_campuse_arrivee");
     }
 
     public function trajetDepart(){
-        return $this->hasMany(Trajets::class,"id_campuse_depart");
+        return $this->hasMany(Trajet::class,"id_campuse_depart");
     }
 }
