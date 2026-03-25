@@ -1,7 +1,8 @@
 @extends('layouts.dashboard')
 
+    {{-- titre --}}
     @section('titre-section')
-        <h1>Liste des employés</h1>
+        <h1>Liste des employés</h1><br>
     @endsection
     
     @section('partie-haute')
@@ -23,5 +24,5 @@
                 </tr>
             @endforeach
         </tbody>
-    </table>
+    </table><br>
     @endsection

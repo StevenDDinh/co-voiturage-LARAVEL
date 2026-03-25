@@ -41,8 +41,10 @@ class VoitureController extends Controller
         return view('voitures/show',compact('voiture'));
     }
 
-    
-
+    public function create(Request $request){
+        $employe_id = $request->query('employe_id');
+        return view('voitures/create',compact('employe_id'));
+    }
     /**
      * Update the specified resource in storage.
      */

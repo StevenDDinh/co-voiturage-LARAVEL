@@ -32,6 +32,8 @@ class EmployeController extends Controller
         Employe::create($new_employe);
     }
 
+    
+
     /**
      * Display the specified resource.
      */
