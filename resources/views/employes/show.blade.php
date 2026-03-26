@@ -23,6 +23,15 @@
 
         <section class="employe_voiture">
             <h3>Voiture</h3>
+            @if(session('success'))
+                <div class="alert alert-success">
+                    <h3 style="color:greenyellow;">{{ session('success') }}</h3>
+                </div>
+            @elseif (session('error'))
+                <div class="alert alert-danger">
+                    <h3 style="color:red;">{{ session('error') }}</h3>
+                </div>
+            @endif
 
             {{-- barre de recherche --}}
             <form method="GET" action="{{ route('employes.show', $employe->id) }}" >

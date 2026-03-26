@@ -3,6 +3,11 @@
     {{-- titre --}}
     @section('titre-section')
         <h1>Liste des employés</h1><br>
+        @if (session('error'))
+            <div class="alert alert-danger">
+                <h3 style="color:red;"> {{session('error') }} </h3>
+            </div>
+        @endif
     @endsection
     
     @section('partie-haute')

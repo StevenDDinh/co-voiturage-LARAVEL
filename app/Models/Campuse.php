@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Campuse extends Model
 {
+    use HasFactory;
     protected $fillable=["description","adresse","type"];
    
     public function employes(){

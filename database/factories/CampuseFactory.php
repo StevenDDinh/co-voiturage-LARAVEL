@@ -21,7 +21,7 @@ class CampuseFactory extends Factory
     {
         return [
             'description'=>$this->faker->text(),
-            'addresse'=>$this->faker->secondaryAddress(),
+            'adresse'=>$this->faker->secondaryAddress(),
             'type'=>$this->faker->text()
         ];
     }

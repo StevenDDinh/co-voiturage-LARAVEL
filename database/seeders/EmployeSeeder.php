@@ -14,7 +14,7 @@ class EmployeSeeder extends Seeder
      */
     public function run(): void
     {
-        Employe::factory()->count(10)->create()->each(function($employe){
+        Employe::factory()->count(20)->create()->each(function($employe){
             $nombreDeVoitures = rand(0,3);
 
             if($nombreDeVoitures>0){

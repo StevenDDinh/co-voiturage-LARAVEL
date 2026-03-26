@@ -25,9 +25,11 @@ class VoitureController extends Controller
         $new_voiture=$request->validate([
             'modele'=> 'required|string',
             'nb_places'=> 'required|numeric',
-            'id_employe'=> 'required|exists:employe,id'
+            'id_employe'=> 'required|exists:employes,id'
         ]);
         Voiture::create($new_voiture);
+        return redirect()->route('employes.show', $request->id_employe)
+                     ->with('success', 'Voiture ajoutée avec succès !');
     }
 
     /**
@@ -55,7 +57,7 @@ class VoitureController extends Controller
         $update_voiture=$request->validate([
             'modele'=> 'sometimes|string',
             'nb_places'=> 'sometimes|numeric',
-            'id_employe'=> 'sometimes|exists:employe,id'
+            'id_employe'=> 'sometimes|exists:employes,id'
         ]);
         $voiture->update($update_voiture);
     }
